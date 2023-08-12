@@ -1,0 +1,48 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    tools:context=".DetailActivity">
+
+    <ImageView
+        android:id="@+id/imageView"
+        android:layout_width="@dimen/_250sdp"
+        android:layout_height="@dimen/_250sdp"
+        android:layout_gravity="center"
+        android:src="@drawable/bingo_game" />
+
+    <TextView
+        android:id="@+id/title"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="@dimen/_10sdp"
+        android:textStyle="bold"
+        android:text="Bingo Game"
+        android:textColor="@color/black"
+        android:textSize="@dimen/_24ssp" />
+
+    <TextView
+        android:id="@+id/subTitle"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="@dimen/_10sdp"
+        android:textStyle="normal"
+        android:text="Kids bingo game that improve logic and Board game based on the popular game of Tambola/Bingo"
+        android:textColor="@color/black"
+        android:textSize="@dimen/_20ssp"
+        android:layout_marginTop="@dimen/_20sdp"/>
+
+    <TextView
+        android:id="@+id/price"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="@dimen/_10sdp"
+        android:textStyle="bold"
+        android:text="$51"
+        android:textColor="@color/black"
+        android:textSize="@dimen/_20ssp"
+        android:layout_marginTop="@dimen/_20sdp"/>
+
+</LinearLayout>

@@ -1,0 +1,15 @@
+<resources>
+    <string name="app_name">My Application</string>
+    <string name="quickx_ecommerce">QuickX Kids-Ecommerce</string>
+    <string name="description">Where style meets comfort for fashion-forward kids. Discover trendy clothing and accessories designed to let your little ones express their unique personalities effortlessly.</string>
+    <string name="submit">Submit</string>
+    <string name="shipping_information">Shipping Information</string>
+    <string name="address">Address</string>
+    <string name="city">City</string>
+    <string name="state">State</string>
+    <string name="country">Country</string>
+    <string name="credit_card_information">Credit Card Information</string>
+    <string name="name_of_card_holder">Name of Card Holder</string>
+    <string name="card_number">Card Number</string>
+    <string name="cvv_number">Cvv Number</string>
+</resources>
