@@ -1,11 +1,14 @@
-package com.example.myapplication;
+package com.example.myapplication.data;
 
 public class Product {
 
-    int price;
-    String title;
-    String subTitle;
-    int imageId;
+    public int price;
+    public String title;
+    public String subTitle;
+    public int imageId;
+
+    public Product() {
+    }
 
     public Product(int price, String title, String subTitle, int imageId) {
         this.price = price;

@@ -1,4 +1,4 @@
-package com.example.myapplication;
+package com.example.myapplication.ui;
 
 import android.content.Context;
 import android.view.LayoutInflater;
@@ -9,19 +9,23 @@ import android.widget.TextView;
 
 import androidx.recyclerview.widget.RecyclerView;
 
+import com.example.myapplication.ClickListener;
+import com.example.myapplication.R;
+import com.example.myapplication.data.Product;
+
 import java.util.ArrayList;
 
-class ProductAdapter extends RecyclerView.Adapter<ProductAdapter.ViewHolder> {
+public class ProductAdapter extends RecyclerView.Adapter<ProductAdapter.ViewHolder> {
 
-    ArrayList<Product> list = new ArrayList<>();
+    ArrayList<Product> list;
 
     Context context;
-    ClickListener listiner;
+    ClickListener listener;
 
     public ProductAdapter(ArrayList<Product> list, Context context, ClickListener clickListener) {
         this.list = list;
         this.context = context;
-        this.listiner = clickListener;
+        this.listener = clickListener;
     }
 
     @Override
@@ -42,12 +46,7 @@ class ProductAdapter extends RecyclerView.Adapter<ProductAdapter.ViewHolder> {
         viewHolder.productSubTitle.setText(list.get(position).subTitle);
         viewHolder.productPrice.setText("$"+list.get(position).price);
         viewHolder.productImage.setImageResource(list.get(position).imageId);
-        viewHolder.view.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                listiner.onClick(index);
-            }
-        });
+        viewHolder.view.setOnClickListener(view -> listener.onClick(index));
     }
 
     @Override
@@ -67,10 +66,10 @@ class ProductAdapter extends RecyclerView.Adapter<ProductAdapter.ViewHolder> {
 
         ViewHolder(View itemView) {
             super(itemView);
-            productImage = (ImageView) itemView.findViewById(R.id.productImage);
-            productTitle = (TextView) itemView.findViewById(R.id.productTitle);
-            productSubTitle = (TextView) itemView.findViewById(R.id.productSubTitle);
-            productPrice = (TextView) itemView.findViewById(R.id.productPrice);
+            productImage = itemView.findViewById(R.id.productImage);
+            productTitle = itemView.findViewById(R.id.productTitle);
+            productSubTitle = itemView.findViewById(R.id.productSubTitle);
+            productPrice = itemView.findViewById(R.id.productPrice);
             view = itemView;
         }
     }
