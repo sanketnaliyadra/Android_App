@@ -6,7 +6,6 @@ import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
-import android.widget.EditText;
 import android.widget.ImageButton;
 import android.widget.ImageView;
 import android.widget.TextView;
@@ -22,11 +21,10 @@ import com.google.gson.Gson;
 public class DetailActivity extends AppCompatActivity {
 
     ImageView imageView;
-    TextView tvTitle, tvSubTitle, tvPrice, item,itemPrice;
+    TextView tvTitle, tvSubTitle, tvPrice, item,itemPrice,editQnt;
     ImageButton back;
     Button save;
     AppCompatButton addQuantity,removeQuantity;
-    EditText editQnt;
     CardView viewCartItem;
     int price = 0,pos=-1;
     Product product;
