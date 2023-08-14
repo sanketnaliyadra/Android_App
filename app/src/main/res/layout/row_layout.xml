@@ -27,14 +27,15 @@
                     android:layout_height="@dimen/_100sdp"
                     android:layout_gravity="center"
                     android:layout_marginBottom="@dimen/_6sdp"
-                    android:src="@drawable/bingo_game" />
+                    android:src="@drawable/bingo_game"
+                    tools:ignore="ContentDescription" />
 
                 <TextView
                     android:layout_marginHorizontal="@dimen/_10sdp"
                     android:id="@+id/productTitle"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:text="Bingo Game"
+                    tools:text="Bingo Game"
                     android:textColor="@color/black"
                     android:textSize="@dimen/_14ssp"
                     android:textStyle="bold" />
@@ -46,18 +47,46 @@
                     android:layout_height="wrap_content"
                     android:maxLines="2"
                     android:ellipsize="end"
-                    android:text="Kids bingo game that improve logic"
+                    tools:text="Kids bingo game that improve logic"
                     android:textSize="@dimen/_12ssp" />
 
-                <TextView
-                    android:paddingVertical="5dp"
-                    android:layout_marginHorizontal="@dimen/_10sdp"
-                    android:id="@+id/productPrice"
+                <LinearLayout
+                    android:orientation="horizontal"
                     android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:text="$51"
-                    android:textColor="@color/black"
-                    android:textSize="@dimen/_14ssp" />
+                    android:layout_height="match_parent">
+
+                    <TextView
+                        android:layout_gravity="center"
+                        android:layout_weight="1"
+                        android:paddingVertical="5dp"
+                        android:layout_marginHorizontal="@dimen/_10sdp"
+                        android:id="@+id/productPrice"
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        tools:text="$51"
+                        android:textColor="@color/black"
+                        android:textSize="@dimen/_14ssp" />
+
+                    <TextView
+                        tools:visibility="visible"
+                        android:visibility="gone"
+                        android:layout_marginHorizontal="@dimen/_10sdp"
+                        android:id="@+id/cartCount"
+                        android:layout_width="16dp"
+                        android:layout_height="16dp"
+                        tools:text="0"
+                        android:textSize="10sp"
+                        android:lineHeight="14sp"
+                        android:gravity="center"
+                        android:layout_gravity="center"
+                        android:textAlignment="center"
+                        android:background="@drawable/bg_circle"
+                        android:backgroundTint="@color/colorPrimary"
+                        android:textColor="@color/white"
+                        tools:ignore="SmallSp"
+                        tools:targetApi="p" />
+
+                </LinearLayout>
 
             </androidx.appcompat.widget.LinearLayoutCompat>
 

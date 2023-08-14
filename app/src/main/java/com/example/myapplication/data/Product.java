@@ -6,6 +6,7 @@ public class Product {
     public String title;
     public String subTitle;
     public int imageId;
+    public float cartCount = 0;
 
     public Product() {
     }
@@ -15,6 +16,22 @@ public class Product {
         this.title = title;
         this.subTitle = subTitle;
         this.imageId = imageId;
+    }
+
+    public Product(int price, String title, String subTitle, int imageId, int cartCount) {
+        this.price = price;
+        this.title = title;
+        this.subTitle = subTitle;
+        this.imageId = imageId;
+        this.cartCount = cartCount;
+    }
+
+    public float getCartCount() {
+        return cartCount;
+    }
+
+    public void setCartCount(float cartCount) {
+        this.cartCount = cartCount;
     }
 
     public int getPrice() {

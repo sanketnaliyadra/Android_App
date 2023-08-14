@@ -22,6 +22,9 @@
             android:name=".ui.activity.CheckoutActivity"
             android:exported="false" />
         <activity
+            android:name=".ui.activity.ViewCartActivity"
+            android:exported="false" />
+        <activity
             android:name=".ui.activity.MainActivity"
             android:exported="true">
             <intent-filter>

@@ -1,6 +1,7 @@
 package com.example.myapplication.ui.activity;
 
 import android.annotation.SuppressLint;
+import android.app.Activity;
 import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
@@ -15,17 +16,20 @@ import androidx.appcompat.widget.AppCompatButton;
 import androidx.cardview.widget.CardView;
 
 import com.example.myapplication.R;
+import com.example.myapplication.data.Product;
+import com.google.gson.Gson;
 
 public class DetailActivity extends AppCompatActivity {
 
     ImageView imageView;
-    TextView tvTitle, tvSubTitle, tvPrice,viewCart, item,itemPrice;
+    TextView tvTitle, tvSubTitle, tvPrice, item,itemPrice;
     ImageButton back;
+    Button save;
     AppCompatButton addQuantity,removeQuantity;
     EditText editQnt;
     CardView viewCartItem;
-    int price = 0;
-
+    int price = 0,pos=-1;
+    Product product;
     float defaultCart = 0;
     @SuppressLint("SetTextI18n")
     @Override
@@ -35,41 +39,42 @@ public class DetailActivity extends AppCompatActivity {
 
         setFindViewById();
         setData();
+        showViewCartItem();
         setOnClickListner();
     }
 
     @SuppressLint("SetTextI18n")
     private void setData() {
-        price = getIntent().getIntExtra("price", 0);
-        String title = getIntent().getStringExtra("title");
-        String subTitle = getIntent().getStringExtra("subTitle");
-        int imagerId = getIntent().getIntExtra("imagerId", R.drawable.bingo_game);
-
+        pos = getIntent().getIntExtra("pos", -1);
+        product = new Gson().fromJson( getIntent().getStringExtra("product"),Product.class);
+        price = product.price;
+        defaultCart = product.cartCount;
         tvPrice.setText("Price: "+"$" + price);
-        tvTitle.setText(title);
-        tvSubTitle.setText(subTitle);
-        imageView.setImageResource(imagerId);
+        tvTitle.setText(product.title);
+        tvSubTitle.setText(product.subTitle);
+        imageView.setImageResource(product.imageId);
     }
 
     @SuppressLint("SetTextI18n")
     private void setOnClickListner() {
         back.setOnClickListener(v -> onBackPressed());
 
-        viewCart.setOnClickListener(v -> {
-            Intent intent = new Intent(DetailActivity.this, CheckoutActivity.class);
-            startActivity(intent);
+        save.setOnClickListener(v -> {
+            Intent resultIntent = new Intent();
+            resultIntent.putExtra("pos", pos);
+            resultIntent.putExtra("cartCount", defaultCart);
+            setResult(Activity.RESULT_OK, resultIntent);
+            finish();
         });
 
         addQuantity.setOnClickListener(v -> {
             defaultCart++;
-            editQnt.setText("" + defaultCart);
             showViewCartItem();
         });
 
         removeQuantity.setOnClickListener(v -> {
             if (defaultCart > 0) {
                 defaultCart--;
-                editQnt.setText("" + defaultCart);
                 showViewCartItem();
             }
         });
@@ -82,7 +87,7 @@ public class DetailActivity extends AppCompatActivity {
         tvSubTitle = findViewById(R.id.subTitle);
         tvPrice = findViewById(R.id.price);
         back = findViewById(R.id.imageButtonBack);
-        viewCart = findViewById(R.id.viewCart);
+        save = findViewById(R.id.save);
         addQuantity = findViewById(R.id.addQuantity);
         removeQuantity = findViewById(R.id.removeQuantity);
         editQnt = findViewById(R.id.editQnt);
@@ -93,7 +98,13 @@ public class DetailActivity extends AppCompatActivity {
 
     @SuppressLint("SetTextI18n")
     private void showViewCartItem(){
+        editQnt.setText("" + defaultCart);
         defaultCart = Float.parseFloat(editQnt.getText().toString());
+        if(defaultCart == 0){
+            save.setText("Save");
+        }else{
+            save.setText("Add to cart");
+        }
         if (defaultCart > 0.0) {
             viewCartItem.setVisibility(View.VISIBLE);
             item.setText(editQnt.getText().toString() + " Item");

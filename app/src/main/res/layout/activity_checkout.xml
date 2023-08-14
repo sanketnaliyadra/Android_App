@@ -37,104 +37,244 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:maxLines="1"
-            android:text="Form Detail"
+            android:text="@string/form_detail"
             android:layout_weight="1"
             android:textColor="@color/white"
             android:textSize="20sp"
             android:lineHeight="24sp"
-            />
+            tools:targetApi="p" />
 
     </androidx.appcompat.widget.LinearLayoutCompat>
 
-
-    <LinearLayout
+    <ScrollView
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:orientation="vertical"
-        android:padding="@dimen/_16sdp"
-        tools:ignore="MissingConstraints">
+        android:layout_height="wrap_content">
 
-        <TextView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="@string/shipping_information"
-            android:layout_marginBottom="20sp"
-            android:layout_marginTop="@dimen/_22sdp"
-            android:layout_gravity="center"
-            android:textSize="@dimen/_24sdp"
-            android:textStyle="bold"/>
-
-        <EditText
+        <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:minHeight="48dp"
-            android:hint="Name"
-            />
+            android:orientation="vertical"
+            android:padding="@dimen/_16sdp"
+            tools:ignore="MissingConstraints">
 
-        <EditText
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:minHeight="48dp"
-            android:hint="@string/address"/>
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/shipping_information"
+                android:layout_marginBottom="20sp"
+                android:layout_marginTop="@dimen/_15sdp"
+                android:layout_gravity="center"
+                android:textSize="@dimen/_24sdp"
+                android:textStyle="bold"/>
 
-        <EditText
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:minHeight="48dp"
-            android:hint="@string/city"/>
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="12dp"
+                android:background="@drawable/outlined_background_with_white_filled">
 
-        <EditText
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:minHeight="48dp"
-            android:hint="@string/state"/>
+                <EditText
+                    android:layout_width="0dp"
+                    android:layout_height="32dp"
+                    android:textSize="12sp"
+                    android:lineHeight="16sp"
+                    android:layout_gravity="center_vertical"
+                    android:layout_marginHorizontal="16dp"
+                    android:layout_marginVertical="4dp"
+                    android:layout_weight="1"
+                    android:background="@null"
+                    android:textCursorDrawable="@drawable/cursor_edit_txt"
+                    android:textColor="#121212"
+                    android:textColorHint="#868686"
+                    android:hint="@string/name"
+                    tools:targetApi="p" />
+            </LinearLayout>
 
-        <EditText
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:minHeight="48dp"
-            android:hint="@string/country"/>
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="12dp"
+                android:background="@drawable/outlined_background_with_white_filled">
 
-        <TextView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="@string/credit_card_information"
-            android:layout_gravity="center"
-            android:textSize="@dimen/_20ssp"
-            android:layout_marginTop="@dimen/_20sdp"
-            android:layout_marginBottom="20dp"
-            android:textStyle="normal"/>
+                <EditText
+                    android:layout_width="0dp"
+                    android:layout_height="32dp"
+                    android:textSize="12sp"
+                    android:lineHeight="16sp"
+                    android:layout_gravity="center_vertical"
+                    android:layout_marginHorizontal="16dp"
+                    android:layout_marginVertical="4dp"
+                    android:layout_weight="1"
+                    android:background="@null"
+                    android:textCursorDrawable="@drawable/cursor_edit_txt"
+                    android:textColor="#121212"
+                    android:textColorHint="#868686"
+                    android:hint="@string/address"
+                    tools:targetApi="p" />
+            </LinearLayout>
 
-        <EditText
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:minHeight="48dp"
-            android:hint="@string/name_of_card_holder"/>
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="12dp"
+                android:background="@drawable/outlined_background_with_white_filled">
 
-        <EditText
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:minHeight="48dp"
-            android:hint="@string/card_number"/>
+                <EditText
+                    android:layout_width="0dp"
+                    android:layout_height="32dp"
+                    android:textSize="12sp"
+                    android:lineHeight="16sp"
+                    android:layout_gravity="center_vertical"
+                    android:layout_marginHorizontal="16dp"
+                    android:layout_marginVertical="4dp"
+                    android:layout_weight="1"
+                    android:background="@null"
+                    android:textCursorDrawable="@drawable/cursor_edit_txt"
+                    android:textColor="#121212"
+                    android:textColorHint="#868686"
+                    android:hint="@string/city"
+                    tools:targetApi="p" />
+            </LinearLayout>
 
-        <EditText
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:hint="@string/cvv_number"
-            android:minHeight="48dp"/>
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="12dp"
+                android:background="@drawable/outlined_background_with_white_filled">
+
+                <EditText
+                    android:layout_width="0dp"
+                    android:layout_height="32dp"
+                    android:textSize="12sp"
+                    android:lineHeight="16sp"
+                    android:layout_gravity="center_vertical"
+                    android:layout_marginHorizontal="16dp"
+                    android:layout_marginVertical="4dp"
+                    android:layout_weight="1"
+                    android:background="@null"
+                    android:textCursorDrawable="@drawable/cursor_edit_txt"
+                    android:textColor="#121212"
+                    android:textColorHint="#868686"
+                    android:hint="@string/state"
+                    tools:targetApi="p" />
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="12dp"
+                android:background="@drawable/outlined_background_with_white_filled">
+
+                <EditText
+                    android:layout_width="0dp"
+                    android:layout_height="32dp"
+                    android:textSize="12sp"
+                    android:lineHeight="16sp"
+                    android:layout_gravity="center_vertical"
+                    android:layout_marginHorizontal="16dp"
+                    android:layout_marginVertical="4dp"
+                    android:layout_weight="1"
+                    android:background="@null"
+                    android:textCursorDrawable="@drawable/cursor_edit_txt"
+                    android:textColor="#121212"
+                    android:textColorHint="#868686"
+                    android:hint="@string/country"
+                    tools:targetApi="p" />
+            </LinearLayout>
 
 
-    </LinearLayout>
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/credit_card_information"
+                android:layout_gravity="center"
+                android:textSize="@dimen/_20ssp"
+                android:layout_marginTop="@dimen/_20sdp"
+                android:layout_marginBottom="20dp"
+                android:textStyle="normal"/>
 
-    <Button
-        android:id="@+id/button"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_gravity="center"
-        android:backgroundTint="#6750A4"
-        android:text="@string/submit"
-        android:textSize="@dimen/_20ssp"
-         />
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="12dp"
+                android:background="@drawable/outlined_background_with_white_filled">
 
+                <EditText
+                    android:layout_width="0dp"
+                    android:layout_height="32dp"
+                    android:textSize="12sp"
+                    android:lineHeight="16sp"
+                    android:layout_gravity="center_vertical"
+                    android:layout_marginHorizontal="16dp"
+                    android:layout_marginVertical="4dp"
+                    android:layout_weight="1"
+                    android:background="@null"
+                    android:textCursorDrawable="@drawable/cursor_edit_txt"
+                    android:textColor="#121212"
+                    android:textColorHint="#868686"
+                    android:hint="@string/name_of_card_holder"
+                    tools:targetApi="p" />
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="12dp"
+                android:background="@drawable/outlined_background_with_white_filled">
+
+                <EditText
+                    android:layout_width="0dp"
+                    android:layout_height="32dp"
+                    android:textSize="12sp"
+                    android:lineHeight="16sp"
+                    android:layout_gravity="center_vertical"
+                    android:layout_marginHorizontal="16dp"
+                    android:layout_marginVertical="4dp"
+                    android:layout_weight="1"
+                    android:background="@null"
+                    android:textCursorDrawable="@drawable/cursor_edit_txt"
+                    android:textColor="#121212"
+                    android:textColorHint="#868686"
+                    android:hint="@string/card_number"
+                    tools:targetApi="p" />
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="12dp"
+                android:background="@drawable/outlined_background_with_white_filled">
+
+                <EditText
+                    android:layout_width="0dp"
+                    android:layout_height="32dp"
+                    android:textSize="12sp"
+                    android:lineHeight="16sp"
+                    android:layout_gravity="center_vertical"
+                    android:layout_marginHorizontal="16dp"
+                    android:layout_marginVertical="4dp"
+                    android:layout_weight="1"
+                    android:background="@null"
+                    android:textCursorDrawable="@drawable/cursor_edit_txt"
+                    android:textColor="#121212"
+                    android:textColorHint="#868686"
+                    android:hint="@string/cvv_number"
+                    tools:targetApi="p" />
+            </LinearLayout>
+
+            <Button
+                android:id="@+id/button"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"
+                android:backgroundTint="#6750A4"
+                android:text="@string/submit"
+                android:textSize="@dimen/_20ssp"
+                android:layout_marginTop="@dimen/_10sdp"
+                />
+
+        </LinearLayout>
+
+    </ScrollView>
 
 </androidx.appcompat.widget.LinearLayoutCompat>
