@@ -46,7 +46,7 @@ public class ProductActivity extends AppCompatActivity {
         fabAdd.setOnClickListener(v -> {
              Intent intent = new Intent(ProductActivity.this, ViewCartActivity.class);
              intent.putExtra("viewCartList",new Gson().toJson(getModelsWithValueGreaterThanZero(productArrayList)));
-             startActivity(intent);
+             startActivityForResult(intent,200);
         });
     }
 
@@ -106,15 +106,24 @@ public class ProductActivity extends AppCompatActivity {
     protected void onActivityResult(int requestCode, int resultCode, @Nullable Intent data) {
         super.onActivityResult(requestCode, resultCode, data);
         if(resultCode == RESULT_OK){
-            assert data != null;
-            Bundle extras = data.getExtras();
-            if (extras != null) {
-               int pos = extras.getInt("pos");
-               float cartCount = extras.getFloat("cartCount");
-                productArrayList.get(pos).setCartCount(cartCount);
+            if(requestCode == 100){
+                assert data != null;
+                Bundle extras = data.getExtras();
+                if (extras != null) {
+                    int pos = extras.getInt("pos");
+                    float cartCount = extras.getFloat("cartCount");
+                    productArrayList.get(pos).setCartCount(cartCount);
+                    productAdapter.setData(productArrayList);
+                    viewCartItem();
+                }
+            }
+
+            if(requestCode == 200){
+                setAllValuesToZero();
                 productAdapter.setData(productArrayList);
                 viewCartItem();
             }
+
         }
     }
 
@@ -144,5 +153,11 @@ public class ProductActivity extends AppCompatActivity {
             }
         }
         return filteredModels;
+    }
+
+    private void setAllValuesToZero() {
+        for (Product model : productArrayList) {
+            model.setCartCount(0);
+        }
     }
 }

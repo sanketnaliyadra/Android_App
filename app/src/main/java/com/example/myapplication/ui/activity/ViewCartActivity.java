@@ -1,10 +1,12 @@
 package com.example.myapplication.ui.activity;
 
+import androidx.annotation.Nullable;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.recyclerview.widget.GridLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
 import android.annotation.SuppressLint;
+import android.app.Activity;
 import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
@@ -42,7 +44,7 @@ public class ViewCartActivity extends AppCompatActivity {
         back.setOnClickListener(v -> onBackPressed());
         checkout.setOnClickListener(v -> {
             Intent intent = new Intent(ViewCartActivity.this, CheckoutActivity.class);
-            startActivity(intent);
+            startActivityForResult(intent,200);
         });
 
         getData();
@@ -74,5 +76,15 @@ public class ViewCartActivity extends AppCompatActivity {
             total += model.cartCount*model.price;
         }
         return total;
+    }
+
+    @Override
+    protected void onActivityResult(int requestCode, int resultCode, @Nullable Intent data) {
+        super.onActivityResult(requestCode, resultCode, data);
+        if(requestCode ==200){
+            Intent resultIntent = new Intent();
+            setResult(Activity.RESULT_OK, resultIntent);
+            finish();
+        }
     }
 }
